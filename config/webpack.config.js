@@ -115,8 +115,6 @@ module.exports = function(webpackEnv) {
           loader: require.resolve('resolve-url-loader'),
           options: {
             sourceMap: isEnvProduction && shouldUseSourceMap,
-            modules: true,
-            localIdentName: '[name]__[local]--[hash:base64:5]'
           },
         },
         {
