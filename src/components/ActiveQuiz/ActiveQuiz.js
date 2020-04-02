@@ -7,7 +7,7 @@ const ActiveQuiz = props => (
         <p className={classes.Question}>
           <span>
               <strong>2.</strong>&nbsp;
-              How are you?
+              {props.question}
           </span>
             
             <small>4 из 12</small>
