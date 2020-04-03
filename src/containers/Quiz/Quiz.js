@@ -39,7 +39,14 @@ class Quiz extends Component {
         if (question.rightAnswerId === answerId) {
             
             const timeout = window.setTimeout(() => {
-                if ()
+                
+                if (this.isQuizFinished()) {
+                
+                }else{
+                    this.setState({
+                     activeQuestion:this.state.activeQuestion+1
+                    })
+                }
             
             
             window.clearTimeout()
