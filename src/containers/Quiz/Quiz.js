@@ -34,9 +34,23 @@ class Quiz extends Component {
     onAnswerClickHandler = answerId => {
         console.log('Answer Id', answerId);
         
-      this.setState({
-          activeQuestion: this.state.activeQuestion+1
-      })
+        const question = this.state.quiz[this.state.activeQuestion];
+        
+        if (question.rightAnswerId === answerId) {
+            
+            const timeout = window.setTimeout(() => {
+                if ()
+            
+            
+            window.clearTimeout()
+            },1000)
+        
+        } else {
+            
+            this.setState({
+                activeQuestion: this.state.activeQuestion + 1
+            });
+        }
     };
     
     render() {
