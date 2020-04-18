@@ -12,7 +12,6 @@ const links = [
 ];
 
 class Drawer extends Component {
-    isOpen;
     
     clickHandler = ()=>{
         this.props.onClose()
