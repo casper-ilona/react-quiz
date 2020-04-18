@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import classes from './Auth.module.css';
 import Button from "../../components/UI/Button/Button";
-
-
+import Input from "../../components/UI/Input/Input";
 
 
 export default class Auth extends Component {
@@ -11,12 +10,12 @@ export default class Auth extends Component {
     
     };
     
-    registerHandler =() => {
+    registerHandler = () => {
     
     };
     
     submitHandler = event => {
-       event.preventDefault()
+        event.preventDefault();
     };
     
     
@@ -25,23 +24,30 @@ export default class Auth extends Component {
             <div className={classes.Auth}>
                 <div>
                     <h1>Login</h1>
-                    
-                    <Button
-                        type="success"
-                        onClick={this.loginHandler}
-                    >
-                        Go
-                    </Button>
-                    
-                    <Button
-                        type="primary"
-                        onClick={this.registerHandler}
-                    >
-                        Sign up
-                    </Button>
                     <form onSubmit={this.submitHandler} className={classes.AuthForm}>
-                        <input type="text"/>
-                        <input type="text"/>
+                        
+                        <Input
+                            label="Email"
+                        />
+                        
+                        <Input
+                            label="Password"
+                            errorMessage={'TEST'}
+                        />
+                        
+                        <Button
+                            type="success"
+                            onClick={this.loginHandler}
+                        >
+                            Go
+                        </Button>
+                        
+                        <Button
+                            type="primary"
+                            onClick={this.registerHandler}
+                        >
+                            Sign up
+                        </Button>
                     </form>
                 </div>
             </div>
