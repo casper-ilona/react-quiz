@@ -4,6 +4,7 @@ import Button from "../../components/UI/Button/Button";
 import Input from "../../components/UI/Input/Input";
 
 
+
 export default class Auth extends Component {
     
     state = {
@@ -52,6 +53,20 @@ export default class Auth extends Component {
       if (!validation) {
           return true
       }
+      
+      let isValid = true
+        
+        if (validation.required) {
+            isValid = value.trim() !== '' && isValid
+        }
+        if (validation.email) {
+        
+        }
+        if (validation.minlength) {
+            isValid = value.length >= validation.minlength && isValid
+        }
+      
+       return isValid
     };
     
     onChangeHandler = (event, controlName) => {
