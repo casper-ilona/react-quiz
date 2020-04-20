@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import classes from './Auth.module.css';
 import Button from "../../components/UI/Button/Button";
 import Input from "../../components/UI/Input/Input";
-
+import is from 'is_js';
 
 
 export default class Auth extends Component {
@@ -50,30 +50,29 @@ export default class Auth extends Component {
     };
     
     validateControl(value, validation) {
-      if (!validation) {
-          return true
-      }
-      
-      let isValid = true
+        if (!validation) {
+            return true;
+        }
+        
+        let isValid = true;
         
         if (validation.required) {
-            isValid = value.trim() !== '' && isValid
+            isValid = value.trim() !== '' && isValid;
         }
         if (validation.email) {
-        
+            isValid = is.email(value) && isValid;
         }
         if (validation.minlength) {
-            isValid = value.length >= validation.minlength && isValid
+            isValid = value.length >= validation.minlength && isValid;
         }
-      
-       return isValid
+        
+        return isValid;
     };
     
     onChangeHandler = (event, controlName) => {
-     console.log (`${controlName}`, event.target.value);
         
-        const formControls = { ...this.state.formControls };
-        const control = { ...formControls[controlName] };
+        const formControls = {...this.state.formControls};
+        const control = {...formControls[controlName]};
         
         control.value = event.target.value;
         control.touched = true;
@@ -82,8 +81,8 @@ export default class Auth extends Component {
         formControls[controlName] = control;
         
         this.setState({
-          formControls
-        })
+            formControls
+        });
     };
     
     
@@ -100,7 +99,7 @@ export default class Auth extends Component {
                     label={control.label}
                     shouldValidate={!!control.validation}
                     errorMessage={control.errorMessage}
-                    onChange={event=>this.onChangeHandler(event, controlName)}
+                    onChange={event => this.onChangeHandler(event, controlName)}
                 />
             );
         });
