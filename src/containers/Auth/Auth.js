@@ -48,6 +48,12 @@ export default class Auth extends Component {
         event.preventDefault();
     };
     
+    validateControl(value, validation) {
+      if (!validation) {
+          return true
+      }
+    };
+    
     onChangeHandler = (event, controlName) => {
      console.log (`${controlName}`, event.target.value);
         
@@ -55,7 +61,14 @@ export default class Auth extends Component {
         const control = { ...formControls[controlName] };
         
         control.value = event.target.value;
-        control.touched = true
+        control.touched = true;
+        control.valid = this.validateControl(control.value, control.validation);
+        
+        formControls[controlName] = control;
+        
+        this.setState({
+          formControls
+        })
     };
     
     
