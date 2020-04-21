@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './FinishedQuiz.module.css';
 import Button from '../UI/Button/Button';
 import { Link } from 'react-router-dom';
+import PropTypes from "prop-types";
 
 const FinishedQuiz = props => {
     const successCount = Object.keys(props.results).reduce((total, key) => {
@@ -57,6 +58,12 @@ const FinishedQuiz = props => {
             </div>
         </div>
     );
+};
+
+FinishedQuiz.propTypes = {
+    quiz: PropTypes.array,
+    results: PropTypes.object,
+    onRetry: PropTypes.func,
 };
 
 export default FinishedQuiz;

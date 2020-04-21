@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './Button.module.css';
+import PropTypes from "prop-types";
 
 const Button = props => {
     const cls = [
@@ -16,6 +17,12 @@ const Button = props => {
             {props.children}
         </button>
     );
+};
+
+Button.propTypes = {
+    type: PropTypes.oneOf(['error', 'success', 'primary']),
+    disabled: PropTypes.bool,
+    onClick: PropTypes.func,
 };
 
 export default Button;

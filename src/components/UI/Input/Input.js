@@ -1,8 +1,9 @@
 import React from 'react';
 import classes from './Input.module.css';
+import PropTypes from "prop-types";
 
-function isInvalid({valid, touched, shouldValidate}) {
-    return !valid && shouldValidate && touched;
+function isInvalid(props) {
+    return !props.valid && props.shouldValidate && props.touched;
 }
 
 const Input = props => {
@@ -29,9 +30,19 @@ const Input = props => {
                     ? <span>{props.errorMessage || 'Enter the correct value'}</span>
                     : null
             }
-        
-        
         </div>
     );
 };
+
+Input.propTypes = {
+    type: PropTypes.string,
+    label: PropTypes.node,
+    value: PropTypes.node,
+    onChange: PropTypes.func,
+    errorMessage: PropTypes.string,
+    shouldValidate: PropTypes.string,
+    touched: PropTypes.string,
+    valid: PropTypes.string,
+};
+
 export default Input;

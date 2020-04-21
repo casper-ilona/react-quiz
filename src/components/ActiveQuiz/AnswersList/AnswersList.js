@@ -1,13 +1,14 @@
 import React from 'react';
 import classes from './AnswersList.module.css';
-import AnswerTtem from "./AnswerItem/AnswerItem";
+import AnswerItem from "./AnswerItem/AnswerItem";
+import PropTypes from "prop-types";
 
 const AnswersList = props => {
     return (
         <ul className={classes.AnswersList}>
             {props.answers.map((answers, index) => {
                 return (
-                    <AnswerTtem
+                    <AnswerItem
                         key={index}
                         answer={answers}
                         onAnswerClick={props.onAnswerClick}
@@ -19,5 +20,10 @@ const AnswersList = props => {
     );
 };
 
+AnswersList.propTypes = {
+    answers: PropTypes.array,
+    onAnswerClick: PropTypes.func,
+    state: PropTypes.object,
+};
 
 export default AnswersList;
