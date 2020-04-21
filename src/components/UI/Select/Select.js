@@ -12,20 +12,20 @@ const Select = props => {
                 value={props.value}
                 onChange={props.onChange}
             >
-                {props.options.map((option, index)=>{
-                  return (
-                    <option
-                      value={option.value}
-                      key={option.value + index}
-                    >
-                        {option.text}
-                    </option>
-                  )
-                  
+                {props.options.map((option, index) => {
+                    return (
+                        <option
+                            value={option.value}
+                            key={option.value + index}
+                        >
+                            {option.text}
+                        </option>
+                    );
+                    
                 })}
             </select>
         </div>
     );
 };
 
-export default Select
+export default Select;

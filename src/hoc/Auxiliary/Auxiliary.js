@@ -1,3 +1,3 @@
-const Axiliary = props =>props.children
+const Axiliary = props => props.children;
 
-export default Axiliary
+export default Axiliary;
